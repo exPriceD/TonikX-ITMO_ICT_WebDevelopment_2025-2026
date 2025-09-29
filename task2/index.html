@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Задание 2 - Лабораторная работа №1</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">Лабораторная работа №1</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">Главная</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Задания</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../task1/" class="dropdown-item">Задание 1</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Задание 2</a>
+</li>
+                                    
+<li>
+    <a href="../task3/" class="dropdown-item">Задание 3</a>
+</li>
+                                    
+<li>
+    <a href="../task4/" class="dropdown-item">Задание 4</a>
+</li>
+                                    
+<li>
+    <a href="../task5/" class="dropdown-item">Задание 5</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../task1/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../task3/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#2-tcp-" class="nav-link">Задание 2: TCP-клиент и сервер для вычислений</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#_1" class="nav-link">Условие</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_2" class="nav-link">Код программы</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_3" class="nav-link">Запуск</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_4" class="nav-link">Результат</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_5" class="nav-link">Выводы</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="2-tcp-">Задание 2: TCP-клиент и сервер для вычислений</h1>
+<h2 id="_1">Условие</h2>
+<p>Реализовать клиентскую и серверную часть приложения. Клиент запрашивает выполнение математической операции, параметры которой вводятся с клавиатуры. Сервер обрабатывает данные и возвращает результат клиенту.</p>
+<p>Требования:</p>
+<ul>
+<li>Обязательно использовать библиотеку <code>socket</code>.</li>
+<li>Реализовать с помощью протокола TCP.</li>
+</ul>
+<hr />
+<h2 id="_2">Код программы</h2>
+<h3 id="serverpy">Сервер (server.py)</h3>
+<pre><code class="language-go">package main
+
+import (
+    &quot;encoding/json&quot;
+    &quot;fmt&quot;
+    &quot;math&quot;
+    &quot;net&quot;
+    &quot;strings&quot;
+)
+
+// Request - формат запроса клиент-сервер
+type Request struct {
+    Operation string    `json:&quot;operation&quot;`
+    Params    []float64 `json:&quot;params&quot;`
+}
+
+// Response - формат ответа сервер-клиент
+type Response struct {
+    Result string `json:&quot;result,omitempty&quot;`
+    Error  string `json:&quot;error,omitempty&quot;`
+}
+
+func main() {
+    ln, err := net.Listen(&quot;tcp&quot;, &quot;:8080&quot;)
+    if err != nil {
+        panic(err)
+    }
+    defer func(ln net.Listener) {
+        err := ln.Close()
+        if err != nil {
+            fmt.Println(err)
+        }
+    }(ln)
+    fmt.Println(&quot;TCP сервер запущен на :3000&quot;)
+
+    for {
+        conn, err := ln.Accept()
+        if err != nil {
+            fmt.Println(&quot;accept error:&quot;, err)
+            continue
+        }
+        go handleConn(conn) // каждый клиент — в отдельной горутине
+    }
+}
+
+func handleConn(c net.Conn) {
+    defer func(c net.Conn) {
+        err := c.Close()
+        if err != nil {
+            fmt.Println(&quot;close error:&quot;, err)
+        }
+    }(c)
+
+    var req Request
+    if err := json.NewDecoder(c).Decode(&amp;req); err != nil {
+        _ = json.NewEncoder(c).Encode(Response{Error: fmt.Sprintf(&quot;некорректный JSON: %v&quot;, err)})
+        return
+    }
+
+    op := strings.ToLower(strings.TrimSpace(req.Operation))
+    switch op {
+    case &quot;pythagoras&quot;:
+        if len(req.Params) != 2 {
+            writeErr(c, &quot;ожидается 2 параметра: a, b&quot;)
+            return
+        }
+        a, b := req.Params[0], req.Params[1]
+        if a &lt; 0 || b &lt; 0 {
+            writeErr(c, &quot;a и b должны быть неотрицательны&quot;)
+            return
+        }
+        res := math.Sqrt(a*a + b*b)
+        writeOK(c, fmt.Sprintf(&quot;c = %.6f&quot;, res))
+
+    case &quot;quadratic&quot;:
+        if len(req.Params) != 3 {
+            writeErr(c, &quot;ожидается 3 параметра: a, b, c&quot;)
+            return
+        }
+        a, b, cc := req.Params[0], req.Params[1], req.Params[2]
+        const eps = 1e-12
+        if math.Abs(a) &lt; eps {
+            if math.Abs(b) &lt; eps {
+                if math.Abs(cc) &lt; eps {
+                    writeOK(c, &quot;бесконечно много решений (0 = 0)&quot;)
+                } else {
+                    writeOK(c, &quot;нет решений&quot;)
+                }
+                return
+            }
+            x := -cc / b
+            writeOK(c, fmt.Sprintf(&quot;линейное уравнение: x = %.6f&quot;, x))
+            return
+        }
+        D := b*b - 4*a*cc
+        switch {
+        case D &gt; eps:
+            sq := math.Sqrt(D)
+            x1 := (-b - sq) / (2 * a)
+            x2 := (-b + sq) / (2 * a)
+            writeOK(c, fmt.Sprintf(&quot;D = %.6f &gt; 0; x1 = %.6f, x2 = %.6f&quot;, D, x1, x2))
+        case math.Abs(D) &lt;= eps:
+            x := -b / (2 * a)
+            writeOK(c, fmt.Sprintf(&quot;D = 0; x = %.6f&quot;, x))
+        default:
+            absD := math.Sqrt(-D)
+            re := -b / (2 * a)
+            im := absD / (2 * a)
+            writeOK(c, fmt.Sprintf(&quot;D = %.6f &lt; 0; x1 = %.6f - %.6fi, x2 = %.6f + %.6fi&quot;, D, re, im, re, im))
+        }
+
+    case &quot;trapezoid&quot;:
+        if len(req.Params) != 3 {
+            writeErr(c, &quot;ожидается 3 параметра: a, b, h&quot;)
+            return
+        }
+        a, b, h := req.Params[0], req.Params[1], req.Params[2]
+        if a &lt;= 0 || b &lt;= 0 || h &lt;= 0 {
+            writeErr(c, &quot;a, b, h должны быть &gt; 0&quot;)
+            return
+        }
+        S := (a + b) / 2 * h
+        writeOK(c, fmt.Sprintf(&quot;S = %.6f&quot;, S))
+
+    case &quot;parallelogram&quot;:
+        if len(req.Params) != 2 {
+            writeErr(c, &quot;ожидается 2 параметра: a, h&quot;)
+            return
+        }
+        a, h := req.Params[0], req.Params[1]
+        if a &lt;= 0 || h &lt;= 0 {
+            writeErr(c, &quot;a и h должны быть &gt; 0&quot;)
+            return
+        }
+        S := a * h
+        writeOK(c, fmt.Sprintf(&quot;S = %.6f&quot;, S))
+
+    default:
+        writeErr(c, &quot;неизвестная операция&quot;)
+    }
+}
+
+func writeOK(c net.Conn, msg string) {
+    _ = json.NewEncoder(c).Encode(Response{Result: msg})
+}
+
+func writeErr(c net.Conn, msg string) {
+    _ = json.NewEncoder(c).Encode(Response{Error: msg})
+}
+</code></pre>
+<h3 id="clientgo">Клиент (client.go)</h3>
+<pre><code class="language-go">package main
+
+import (
+    &quot;encoding/json&quot;
+    &quot;fmt&quot;
+    &quot;log&quot;
+    &quot;net&quot;
+    &quot;os&quot;
+)
+
+// Request - формат запроса клиент-сервер
+type Request struct {
+    Operation string    `json:&quot;operation&quot;`
+    Params    []float64 `json:&quot;params&quot;`
+}
+
+// Response - формат ответа сервер-клиент
+type Response struct {
+    Result string `json:&quot;result,omitempty&quot;`
+    Error  string `json:&quot;error,omitempty&quot;`
+}
+
+func main() {
+    conn, err := net.Dial(&quot;tcp&quot;, &quot;127.0.0.1:8080&quot;)
+    if err != nil {
+        panic(err)
+    }
+    defer func(conn net.Conn) {
+        err := conn.Close()
+        if err != nil {
+            log.Printf(&quot;error closing connection: %v&quot;, err)
+        }
+    }(conn)
+
+    fmt.Println(&quot;Выберите операцию:&quot;)
+    fmt.Println(&quot;1 - Теорема Пифагора (a, b)&quot;)
+    fmt.Println(&quot;2 - Решение квадратного уравнения ax^2 + bx + c = 0 (a, b, c)&quot;)
+    fmt.Println(&quot;3 - Площадь трапеции (a, b, h)&quot;)
+    fmt.Println(&quot;4 - Площадь параллелограмма (a, h)&quot;)
+
+    var choice int
+    if _, err := fmt.Scan(&amp;choice); err != nil {
+        fmt.Println(&quot;некорректный ввод:&quot;, err)
+        return
+    }
+
+    var req Request
+    switch choice {
+    case 1:
+        var a, b float64
+        fmt.Print(&quot;Введите a и b: &quot;)
+        if _, err := fmt.Scan(&amp;a, &amp;b); err != nil {
+            fmt.Println(&quot;некорректный ввод:&quot;, err)
+            return
+        }
+        req = Request{Operation: &quot;pythagoras&quot;, Params: []float64{a, b}}
+
+    case 2:
+        var a, b, c float64
+        fmt.Print(&quot;Введите a, b, c: &quot;)
+        if _, err := fmt.Scan(&amp;a, &amp;b, &amp;c); err != nil {
+            fmt.Println(&quot;некорректный ввод:&quot;, err)
+            return
+        }
+        req = Request{Operation: &quot;quadratic&quot;, Params: []float64{a, b, c}}
+
+    case 3:
+        var a, b, h float64
+        fmt.Print(&quot;Введите a, b, h: &quot;)
+        if _, err := fmt.Scan(&amp;a, &amp;b, &amp;h); err != nil {
+            fmt.Println(&quot;некорректный ввод:&quot;, err)
+            return
+        }
+        req = Request{Operation: &quot;trapezoid&quot;, Params: []float64{a, b, h}}
+
+    case 4:
+        var a, h float64
+        fmt.Print(&quot;Введите a и h: &quot;)
+        if _, err := fmt.Scan(&amp;a, &amp;h); err != nil {
+            fmt.Println(&quot;некорректный ввод:&quot;, err)
+            return
+        }
+        req = Request{Operation: &quot;parallelogram&quot;, Params: []float64{a, h}}
+
+    default:
+        fmt.Println(&quot;Неверный выбор.&quot;)
+        os.Exit(1)
+    }
+
+    // Отправляем запрос и читаем ответ
+    if err := json.NewEncoder(conn).Encode(req); err != nil {
+        fmt.Println(&quot;ошибка отправки:&quot;, err)
+        return
+    }
+
+    var resp Response
+    if err := json.NewDecoder(conn).Decode(&amp;resp); err != nil {
+        fmt.Println(&quot;ошибка чтения ответа:&quot;, err)
+        return
+    }
+
+    if resp.Error != &quot;&quot; {
+        fmt.Println(&quot;Ошибка:&quot;, resp.Error)
+    } else {
+        fmt.Println(&quot;Результат:&quot;, resp.Result)
+    }
+}
+</code></pre>
+<h2 id="_3">Запуск</h2>
+<ol>
+<li>Необходимо открыть два терминала.</li>
+<li>В первом запустите сервер:
+   <code>go run server.go</code></li>
+<li>Во втором терминале запустите клиент:
+   <code>go run client.go</code></li>
+</ol>
+<h2 id="_4">Результат</h2>
+<p>Cо стороны клиента видим: <img alt="task2_client" src="../assets/task2_client.png" /></p>
+<p>Математическая операция выполнена успешно.</p>
+<h2 id="_5">Выводы</h2>
+<ol>
+<li>Реализовано корректное TCP-взаимодействие между клиентом и сервером с использованием библиотеки <code>net</code>.</li>
+<li>Сервер обрабатывает входные данные и возвращает результат вычислений клиенту.</li>
+<li>Задание выполнено в соответствии с требованиями — программа работает стабильно и обрабатывает ошибки.</li>
+</ol></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
