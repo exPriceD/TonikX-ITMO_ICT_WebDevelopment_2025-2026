@@ -13,10 +13,10 @@
       
       
       
-        <link rel="prev" href="../api/">
+        <link rel="prev" href="../architecture/">
       
       
-        <link rel="next" href="../database/">
+        <link rel="next" href="../deployment/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>Архитектура - School Management Service</title>
+        <title>База данных - School Management Service</title>
       
     
     
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Архитектура
+              База данных
             
           </span>
         </div>
@@ -278,11 +278,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../architecture/" class="md-tabs__link">
         
   
   
@@ -299,9 +297,11 @@
   
   
   
+    
   
-    <li class="md-tabs__item">
-      <a href="../database/" class="md-tabs__link">
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
         
   
   
@@ -448,6 +448,28 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Архитектура
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -465,7 +487,7 @@
   
   
   <span class="md-ellipsis">
-    Архитектура
+    База данных
     
   </span>
   
@@ -478,7 +500,7 @@
   
   
   <span class="md-ellipsis">
-    Архитектура
+    База данных
     
   </span>
   
@@ -501,106 +523,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Описание модели данных
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Описание модели данных">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      Обзор
+      Справочники:
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      Слои
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Слои">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#domain-layer" class="md-nav__link">
-    <span class="md-ellipsis">
-      Domain Layer
+      Основные сущности:
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#use-case-layer" class="md-nav__link">
-    <span class="md-ellipsis">
-      Use Case Layer
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#infrastructure-layer" class="md-nav__link">
-    <span class="md-ellipsis">
-      Infrastructure Layer
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#delivery-layer" class="md-nav__link">
-    <span class="md-ellipsis">
-      Delivery Layer
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      Зависимости
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      Ключевые компоненты
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Ключевые компоненты">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      Аутентификация
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      База данных
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#http" class="md-nav__link">
-    <span class="md-ellipsis">
-      HTTP сервер
+      Связи:
     </span>
   </a>
   
@@ -612,11 +565,44 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#2-sql-postgresql" class="md-nav__link">
     <span class="md-ellipsis">
-      Технологии
+      2. SQL-схема (PostgreSQL)
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Стратегия удаления и индексы
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Стратегия удаления и индексы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#soft-delete-vs-hard-delete" class="md-nav__link">
+    <span class="md-ellipsis">
+      Soft Delete vs Hard Delete:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ключевые индексы и их назначение:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -624,28 +610,6 @@
   
 </nav>
       
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../database/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    База данных
-    
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -699,106 +663,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Описание модели данных
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Описание модели данных">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      Обзор
+      Справочники:
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      Слои
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Слои">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#domain-layer" class="md-nav__link">
-    <span class="md-ellipsis">
-      Domain Layer
+      Основные сущности:
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#use-case-layer" class="md-nav__link">
-    <span class="md-ellipsis">
-      Use Case Layer
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#infrastructure-layer" class="md-nav__link">
-    <span class="md-ellipsis">
-      Infrastructure Layer
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#delivery-layer" class="md-nav__link">
-    <span class="md-ellipsis">
-      Delivery Layer
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      Зависимости
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      Ключевые компоненты
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Ключевые компоненты">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      Аутентификация
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      База данных
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#http" class="md-nav__link">
-    <span class="md-ellipsis">
-      HTTP сервер
+      Связи:
     </span>
   </a>
   
@@ -810,11 +705,44 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#2-sql-postgresql" class="md-nav__link">
     <span class="md-ellipsis">
-      Технологии
+      2. SQL-схема (PostgreSQL)
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Стратегия удаления и индексы
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Стратегия удаления и индексы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#soft-delete-vs-hard-delete" class="md-nav__link">
+    <span class="md-ellipsis">
+      Soft Delete vs Hard Delete:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ключевые индексы и их назначение:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -837,76 +765,96 @@
   
 
 
-<h1 id="_1">Архитектура<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h2 id="_2">Обзор<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>Проект построен на Clean Architecture с разделением на слои:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>├── cmd/api/              # Точка входа
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── internal/
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>│   ├── config/           # Конфигурация
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│   ├── domain/           # Бизнес-логика (интерфейсы)
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>│   ├── usecase/          # Сценарии использования
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>│   ├── infrastructure/   # Реализация (БД, JWT)
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>│   └── delivery/http/    # HTTP handlers
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>├── migrations/           # SQL миграции
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>└── tests/               # Тесты
-</code></pre></div>
-<h2 id="_3">Слои<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<h3 id="domain-layer">Domain Layer<a class="headerlink" href="#domain-layer" title="Permanent link">&para;</a></h3>
-<p>Содержит:
-- Интерфейсы репозиториев
-- Интерфейсы use cases
-- Структуры данных (entities)
-- Доменные ошибки</p>
-<p>Не зависит от внешних библиотек.</p>
-<h3 id="use-case-layer">Use Case Layer<a class="headerlink" href="#use-case-layer" title="Permanent link">&para;</a></h3>
-<p>Реализует бизнес-логику:
-- CRUD операции
-- Валидация
-- Координация между репозиториями</p>
-<p>Зависит только от domain интерфейсов.</p>
-<h3 id="infrastructure-layer">Infrastructure Layer<a class="headerlink" href="#infrastructure-layer" title="Permanent link">&para;</a></h3>
-<p>Реализует технические детали:
-- PostgreSQL репозитории
-- JWT сервис
-- Bcrypt хеширование паролей
-- Логирование</p>
-<h3 id="delivery-layer">Delivery Layer<a class="headerlink" href="#delivery-layer" title="Permanent link">&para;</a></h3>
-<p>HTTP обработка:
-- Chi Router
-- Handlers
-- Middleware (auth, CORS, logging)</p>
-<h2 id="_4">Зависимости<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Delivery → Use Case → Domain ← Infrastructure
-</code></pre></div>
-<p>Зависимости направлены внутрь к domain слою.</p>
-<h2 id="_5">Ключевые компоненты<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<h3 id="_6">Аутентификация<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<h1 id="_1">Схема базы данных для школьной системы<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="1">1. Описание модели данных<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p>Схема построена на следующих основных сущностях:</p>
+<h3 id="_2">Справочники:<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <ul>
-<li>JWT токены (access + refresh)</li>
-<li>Bcrypt хеширование паролей</li>
-<li>Role-based access control (RBAC)</li>
+<li><strong>academic_years</strong> — учебные годы (централизованный справочник)</li>
+<li><strong>subjects</strong> — предметы (математика, физика и т.д.)</li>
+<li><strong>subject_types</strong> — типы дисциплин (базовая/профильная)</li>
+<li><strong>genders</strong> — справочник полов</li>
+<li><strong>weekdays</strong> — дни недели</li>
+<li><strong>grading_periods</strong> — оценочные периоды (четверти) с привязкой к учебному году</li>
 </ul>
-<h3 id="_7">База данных<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<h3 id="_3">Основные сущности:<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <ul>
-<li>PostgreSQL 18</li>
-<li>Connection pooling</li>
-<li>Миграции через golang-migrate</li>
+<li><strong>teachers</strong> — учителя</li>
+<li><strong>teacher_subjects</strong> — какие предметы преподает каждый учитель (многие-ко-многим)</li>
+<li><strong>classrooms</strong> — кабинеты с указанием типа дисциплины</li>
+<li><strong>classes</strong> — классы (9А, 10Б и т.д.) с указанием классного руководителя и учебного года</li>
+<li><strong>students</strong> — ученики с привязкой к классу</li>
+<li><strong>schedule</strong> — расписание занятий</li>
+<li><strong>grades</strong> — оценки учеников по предметам в разрезе четвертей</li>
 </ul>
-<h3 id="http">HTTP сервер<a class="headerlink" href="#http" title="Permanent link">&para;</a></h3>
+<h3 id="_4">Связи:<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Chi Router</li>
-<li>Middleware: logging, CORS, auth</li>
-<li>Graceful shutdown</li>
+<li>Учитель ↔ Предметы (многие-ко-многим через teacher_subjects)</li>
+<li>Учитель → Кабинет (многие-к-одному, nullable) — несколько учителей могут использовать один кабинет</li>
+<li>Класс → Учитель-классный руководитель (многие-к-одному)</li>
+<li>Класс → Учебный год (многие-к-одному)</li>
+<li>Ученик → Класс (многие-к-одному)</li>
+<li>Расписание связывает Класс + День + Урок → Предмет + Учитель + Кабинет</li>
+<li>Оценки связывают Ученика + Предмет + Четверть → Оценка</li>
 </ul>
-<h2 id="_8">Технологии<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Go</strong>: 1.25</li>
-<li><strong>Chi</strong>: HTTP router</li>
-<li><strong>PostgreSQL</strong>: База данных</li>
-<li><strong>JWT</strong>: Аутентификация</li>
-<li><strong>Swagger</strong>: Документация API</li>
-<li><strong>Docker</strong>: Контейнеризация</li>
-</ul>
+<h2 id="2-sql-postgresql">2. SQL-схема (PostgreSQL)<a class="headerlink" href="#2-sql-postgresql" title="Permanent link">&para;</a></h2>
+<p>Находится в <code>migrations/001_init_schema.sql</code></p>
+<h2 id="3">3. Стратегия удаления и индексы<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<h3 id="soft-delete-vs-hard-delete">Soft Delete vs Hard Delete:<a class="headerlink" href="#soft-delete-vs-hard-delete" title="Permanent link">&para;</a></h3>
+<p><strong>Таблицы с Soft Delete:</strong>
+- <strong>teachers</strong> — сохраняем историю уволившихся учителей для целостности архивных данных (расписание, оценки прошлых лет)
+- <strong>students</strong> — сохраняем данные отчисленных учеников для архива успеваемости и соблюдения требований хранения персональных данных
+- <strong>classes</strong> — классы прошлых лет остаются в архиве, но помечаются как удаленные</p>
+<p><strong>Обоснование:</strong> Образовательные данные имеют юридическую и историческую ценность. Удаление учителя или ученика не должно разрушать связность данных в отчетах за прошлые периоды. Soft delete позволяет сохранить целостность данных и при необходимости восстановить записи.</p>
+<p><strong>Таблицы с Hard Delete:</strong>
+- <strong>Все справочники</strong> (academic_years, subjects, subject_types, genders, weekdays, grading_periods) — стабильные данные, редко удаляются
+- <strong>classrooms</strong> — при удалении кабинета все связи должны быть пересмотрены
+- <strong>teacher_subjects</strong> — каскадное удаление при удалении учителя; исторические данные контролируются через поля start_date/end_date
+- <strong>schedule</strong> — расписание привязано к классу и может меняться; при архивации класса расписание сохраняется через связь
+- <strong>grades</strong> — оценки не удаляются в нормальном сценарии; при необходимости удаления ученика оценки остаются через FK</p>
+<h3 id="_5">Ключевые индексы и их назначение:<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p><strong>Основные запросы завуча:</strong></p>
+<ol>
+<li><strong>idx_schedule_class_weekday_lesson</strong> — для запроса "какой предмет в классе X в день Y на уроке Z"</li>
+<li>
+<p>Покрывает основной запрос расписания полностью</p>
+</li>
+<li>
+<p><strong>idx_grades_student_period</strong> — для формирования отчета об успеваемости класса за четверть</p>
+</li>
+<li>
+<p>Позволяет быстро получить все оценки ученика за конкретный период</p>
+</li>
+<li>
+<p><strong>idx_students_class_gender</strong> — для подсчета мальчиков/девочек в каждом классе</p>
+</li>
+<li>
+<p>Композитный индекс для агрегации по полу в рамках класса</p>
+</li>
+<li>
+<p><strong>idx_teacher_subjects_subject</strong> — для запроса "учителя, преподающие те же предметы"</p>
+</li>
+<li>
+<p>Partial index только для активных назначений (end_date IS NULL)</p>
+</li>
+<li>
+<p><strong>idx_schedule_teacher, idx_schedule_subject, idx_schedule_classroom</strong> — для различных срезов расписания</p>
+</li>
+<li>Поиск всех уроков учителя, предмета или в конкретном кабинете</li>
+</ol>
+<p><strong>Вспомогательные индексы:</strong></p>
+<ol>
+<li><strong>idx_students_class</strong> — для списка учеников класса (без учета пола)</li>
+<li><strong>idx_classes_academic_year</strong> — для выборки классов текущего года</li>
+<li><strong>idx_classes_teacher</strong> — для поиска классов конкретного классного руководителя</li>
+<li><strong>idx_grading_periods_academic_year</strong> — для выборки четвертей учебного года</li>
+<li><strong>idx_subjects_type, idx_classrooms_type</strong> — для подсчета кабинетов по типам дисциплин</li>
+</ol>
+<p><strong>Почему убраны бессмысленные индексы:</strong>
+- Удалены все композитные индексы, включающие <code>id</code> в качестве первого или единственного значимого поля
+- PRIMARY KEY автоматически создает B-tree индекс на <code>id</code>, поэтому дублировать его не нужно
+- Partial indexes теперь фильтруют только по <code>deleted_at</code> и другим условиям, не включая <code>id</code> в состав индекса</p>
+<p>Схема полностью поддерживает все операции завуча и информационные запросы из требований.</p>
 
 
 
